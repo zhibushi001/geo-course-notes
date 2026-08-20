@@ -368,16 +368,114 @@ Allow: /
 
 ## 📚 参考资料
 
-| 资料 | 类型 | 关键价值 |
+### 学术论文(权威)
+
+| 论文 | 年份 | 关键发现 |
 |---|---|---|
-| Princeton GEO 原论文 (arXiv 2311.09735) | 学术论文 | GEO 概念起点 |
-| AutoGEO (ICLR 2026, arXiv 2510.11438) | 学术论文 | 自动化 GEO 框架 |
-| C-SEO Bench (2025) | 学术论文 | 内容 vs 基础设施实证 |
-| Auriti-Labs/geo-optimizer-skill | 开源工具 | 47 个方法 + 评分体系 |
-| 企业 GEO 实战课程(20 课) | 实战笔记 | 国内市场视角 |
+| **[Princeton GEO 原论文]** (arXiv 2311.09735) | KDD 2024 | GEO 概念起点 / +40% 提升 |
+| **[C-SEO Bench]** (arXiv 2506.11097) | NeurIPS 2025 | 内容优化大多无效,SEO 更有效 |
+| **[Adversarial SEO for LLMs]** (arXiv 2406.18382) | 2024 | 隐藏文字 2.5x,反作弊警告 |
+| **[AutoGEO]** (arXiv 2510.11438) | ICLR 2026 | 自动 GEO 框架 + RL |
+| **[ConflictingQA]** (arXiv 2402.11782) | 2024 | LLM 如何处理矛盾信息 |
+| **[When Search Meets LLMs]** (arXiv 2407.00128) | 2024 | Search4LLM & LLM4Search 综述 |
+| **[Ranking Manipulation]** (arXiv 2406.03589) | 2024 | 提示词注入对排名的影响 |
+| **[ConflictBank]** (arXiv 2408.12076) | 2024 | 740 万条 claim-evidence pairs |
+| **Conductor 2026 AEO/GEO Benchmarks** | 2026 | 13770 domains / 2190万次搜索 / 1700万 AI 引用 |
+| **State of AI Search Optimization 2026** | 2026 | Kevin Indig 分析 LLM 引用模式 |
+
+### 开源工具
+
+| 工具 | ⭐ | 用途 |
+|---|---|---|
+| **[amplifying-ai/awesome-generative-engine-optimization]** | 487 | 权威 GEO 资源清单 |
+| **[Auriti-Labs/geo-optimizer-skill]** | 721 | 47 个研究方法 + 评分 CLI(PyPI) |
+| **[cxcscmu/AutoGEO]** | 200 | 自动内容改写框架(ICLR 2026) |
+| **onvoyage-ai/gtm-engineer-skills** | 1276 | Claude Code skill - AEO/GEO |
+
+### 实战资料
+
+| 资料 | 内容 |
+|---|---|
+| 企业 GEO 实战课程笔记(20 课) | 国内市场视角 / 实战经验 / 案例 |
+| Search Engine Land GEO 入门 | 行业权威博客(GEO 概念普及)|
+| Ahrefs GEO 指南 | 工具厂商视角 |
+| 6 大 AI 平台特性数据 | 字节豆包 3.6 亿月活等 |
 
 ---
 
-**最后更新**: 2026-08-20
+
+---
+
+## 十一、反作弊:为什么隐藏文字会引火烧身
+
+> **重要警告**:虽然有研究显示隐藏文字能让 AI 引用提升 2.5 倍(**Adversarial SEO for LLMs**, 2024),但这是**反面教材**。
+
+### 11.1 短期收益 vs 长期风险
+
+| 时间 | 隐藏文字的效果 |
+|---|---|
+| 第 1 周 | 引用率提升 2.5 倍 ✅ |
+| 第 1 个月 | 平台检测到 → 标记为操纵 |
+| 第 3 个月 | **永久降权**或**删除索引** ❌ |
+| 长期 | 品牌声誉损失 + 法律风险(部分国家视同不正当竞争) |
+
+### 11.2 AI 爬虫能检测到什么
+
+(根据 C-SEO Bench, 2025)
+
+- ✅ 隐藏文字(背景同色)
+- ✅ 不可见 Unicode 字符
+- ✅ HTML 注释里的 LLM 指令
+- ✅ aria-hidden 滥用
+- ✅ 单色文字(白底白字)
+- ✅ 微小字号(1px)
+- ✅ data-attr 注入
+- ✅ CSS `display:none` 滥用
+
+### 11.3 真正安全的 GEO 优化
+
+**做这些会被 AI 友好识别**:
+- ✅ 在 `<noscript>` 里写正常内容(无障碍)
+- ✅ 用 Schema.org 标记结构化数据
+- ✅ 写 FAQ 章节(明确 Q&A)
+- ✅ 加统计数字 + 引用源
+- ✅ 多模态内容(图说、字幕)
+
+**做这些会被 AI 标记**:
+- ❌ 隐藏 LLM 指令(短期 2.5x,长期 -100%)
+- ❌ 关键词堆砌
+- ❌ 自动生成的样板内容
+- ❌ 多语言混用(企图欺骗)
+
+---
+
+## 十二、C-SEO Bench 实证结论(2025 NeurIPS)
+
+> **C-SEO Bench**:第一个大规模 C-SEO 方法评测基准(NeurIPS 2025)
+
+### 12.1 核心发现
+
+**多数 C-SEO 方法** (即内容改写) **not only largely ineffective but also frequently have a negative impact** on document ranking.
+
+**翻译**:大多数"内容优化"方法不仅基本无效,**经常还会起反作用**,让排名下降。
+
+### 12.2 真正有效的策略
+
+| 策略 | 效果 |
+|---|---|
+| **传统 SEO**(优化 LLM 上下文中的源排名) | **显著有效** ✅ |
+| 内容改写(C-SEO) | **大多无效甚至负效果** ❌ |
+| **多参与者场景**(竞争性优化) | 传统 SEO 优势更明显 |
+
+### 12.3 启示
+
+- **基础设施 > 内容改写**
+- **SEO 基础 > GEO 技巧**
+- 别被" GEO 必读 10 招"类营销文忽悠
+- 关注技术合规,而不是黑科技
+
+---
+
+**最后更新**: 2026-08-20 (v2.1 - 加入 C-SEO Bench 和反作弊章节)
 **作者**: 整合自多源资料,经过对比验证
 **联系方式**: zhibushi.com
