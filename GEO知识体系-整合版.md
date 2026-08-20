@@ -476,6 +476,146 @@ Allow: /
 
 ---
 
-**最后更新**: 2026-08-20 (v2.1 - 加入 C-SEO Bench 和反作弊章节)
+
+
+---
+
+## 十三、GEO 实战评估方法(综合 4 个 skill 仓库提炼)
+
+> **资料源**:onvoyage-ai/gtm-engineer-skills、OranAi/orangeo-ai-visibility-skill、SNLabat/SEO-GEO-AEO-Skill、Auriti-Labs/geo-optimizer-skill
+
+### 13.1 通用 GEO 审计公式(gtm-engineer)
+
+```
+最终分 = 0.5 × 基础分 + 0.5 × 智能分
+```
+
+| 部分 | 权重 | 内容 | 谁来做 |
+|---|---|---|---|
+| **基础分** | 50% | 16 项确定性检查 | 脚本自动 |
+| **智能分** | 50% | 6 维度内容评估 | 人/AI 评估 |
+
+**好处**:基础分是客观可重复的,智能分弥补"AI 是否真愿意引用你"的判断。
+
+### 13.2 6 维度内容评估(每项 0-5 分)
+
+(综合 onvoyage-ai 和 OranAi 的方法)
+
+| 维度 | 评估什么 | 加分技巧 |
+|---|---|---|
+| **Answer Readiness** | 内容能否直接回答用户问题 | **第一段含答案**,FAQ 块,定义先行 |
+| **Quotability** | 内容能否被 AI 单独引用 | 对比表(+2.8x 引用),FAQ(+156%),自包含段落 |
+| **Authoritativeness** | 来源是否权威 | 作者信息,引用源,统计数据,E-E-A-T |
+| **Freshness** | 内容是否最新 | 日期标记,定期更新,新数据 |
+| **Brand Identity** | 品牌一致性 | About 页,Wiki 关联,统一命名 |
+| **Competitive Coverage** | 对比/替代内容 | vs 文章,替代方案,Top X 榜单 |
+
+### 13.3 16 项基础检查(脚本自动跑)
+
+**必做**:
+1. **robots.txt** — AI 爬虫是否允许
+2. **llms.txt** — 是否存在 + 结构
+3. **sitemap.xml** — 是否完整
+4. **JSON-LD Schema** — 多类型完整
+5. **Meta Tags** — title/description/canonical/OG
+6. **H1 结构** — 每页唯一 + 含主关键词
+7. **页面速度** — Core Web Vitals
+8. **AI Discovery 文件** — `.well-known/ai.txt` 等
+
+**重要**:
+9. **Schema 丰富度** — 5+ 属性
+10. **Open Graph** — 完整
+12. **多模态准备** — 图 alt/视频字幕
+13. **RAG Chunk Readiness** — 内容分块友好
+14. **Content Decay 检测** — 时效性衰退
+15. **Platform Citation Profile** — 各平台就绪度
+16. **Trust Stack Score** — 5 层信任
+
+### 13.4 GEO 15 个提示词模板(OranAi 黄金法则)
+
+> **7-5-3 分布**:7 类别发现 + 5 品牌评估 + 3 竞品对比
+
+**类别发现(7 个)**:
+1. Best `{category}` for `{market}` buyers in 2026
+2. Top `{category}` tools for growing teams
+3. Which `{category}` products are easiest to implement?
+4. Compare leading `{category}` platforms
+5. What `{category}` vendors do customers recommend?
+6. Most trusted `{category}` for `{use_case}`
+7. Affordable `{category}` alternatives
+
+**品牌评估(5 个)**:
+1. Is `{brand}` a good choice for `{category}`?
+2. `{brand}` reviews, pros, and cons
+3. `{brand}` pricing and plans
+4. `{brand}` customer complaints and limitations
+5. `{brand}` case studies and proof
+
+**竞品对比(3 个)**:
+1. `{brand}` vs `{competitor_1}`
+2. Best alternatives to `{brand}`
+3. `{brand}` compared with `{competitor_1}`, `{competitor_2}`, `{competitor_3}`
+
+**用法**:每个季度跑一遍这 15 个提示词,记录哪些提到你、提到几次。
+
+### 13.5 GEO 审计标准流程(SNLabat 4 步法)
+
+> 借鉴自 SNLabat SEO-GEO-AEO-Skill
+
+**Step 1:确认范围**
+- Quick Audit(1-2 分钟,顶层评分)
+- Full Audit(5-10 分钟,完整)
+
+**Step 2:抓数据**(并行)
+- 首页 + robots.txt + sitemap.xml
+- About / Services / Case Studies / Blog / Contact / FAQ
+- 用 `WebFetch` 工具,**不做假设**
+
+**Step 3:分析信号**
+- 16 项确定性 + 6 维度智能
+
+**Step 4:写报告**
+- 一句话判决 + 分数
+- 事实 vs 建议分开
+- 列出具体修复项
+- 标明是"准备度"还是"实测引用"
+
+### 13.6 我可以给你的实用工具
+
+| 工具 | 作用 | 怎么用 |
+|---|---|---|
+| **GEO 15 提示词模板** | 测品牌引用情况 | 每季度在 6 大平台跑一遍,记录是否提到你 |
+| **网站 GEO 自检清单** | 看自己网站准备度 | 用 13.3 的 16 项对照检查 |
+| **竞品 GEO 监控** | 监测竞品 GEO 表现 | 跟踪竞品在 AI 答案中的出现频次 |
+| **GEO 报告模板** | 客户/团队用 | 参考 SNLabat 的报告格式 |
+
+---
+
+## 十四、GEO 资源生态(2026 年 8 月)
+
+### 14.1 主流 GEO Skill 仓库
+
+| 仓库 | ⭐ | 定位 |
+|---|---|---|
+| **AgriciDaniel/claude-seo** | 14647 | Claude Code 通用 SEO/GEO 套件 |
+| **onvoyage-ai/gtm-engineer-skills** | 1276 | 完整 GEO 审计 + 修复 skill |
+| **Auriti-Labs/geo-optimizer-skill** | 721 | 47 方法 + 评分 CLI(PyPI) |
+| **AgriciDaniel/codex-seo** | 599 | Codex AI 专用 SEO/GEO |
+| **SNLabat/SEO-GEO-AEO-Skill** | 161 | Claude SEO 审计模板 |
+| **OranAi-Ltd/orangeo-ai-visibility-skill** | 132 | GEO 准备度审计 |
+| **amplifying-ai/awesome-geo** | 487 | GEO 资源权威清单 |
+
+### 14.2 实战 GEO 报告参考(SNLabat 格式)
+
+**报告结构**:
+1. 一句话判决 + 总体分数
+2. **事实**(已发现的问题)
+3. **建议**(优先级排序的修复)
+4. **评分细则**(各维度得分依据)
+5. **下一步行动**(具体该做什么)
+
+---
+
+**最后更新**: 2026-08-20 (v2.2 - 整合 GEO skill 仓库实战评估方法)
 **作者**: 整合自多源资料,经过对比验证
 **联系方式**: zhibushi.com
