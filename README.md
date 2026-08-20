@@ -126,6 +126,18 @@ git clone https://github.com/zhibushi001/geo-course-notes.git
 
 ## 🔄 版本记录
 
+- **v2.2** (2026-08-20)
+  - 整合 4 个 GEO skill 仓库的实战评估方法
+  - 知识体系新增第十三、十四章
+  - 增加 15 个 GEO 测试提示词模板(7-5-3 黄金分布)
+  - 增加 16 项基础检查 + 6 维度智能评估
+  - 新增 6 份 skill 资料(SKILL.md 实战方法)
+
+- **v2.1** (2026-08-20)
+  - 加入 C-SEO Bench 和反作弊章节
+  - 增加 5 篇学术论文(Adversarial SEO / ConflictingQA 等)
+  - 完整参考文献表
+
 - **v2.0** (2026-08-20)
   - 增加权威资料源(Princeton / Auriti-Labs / AutoGEO)
   - 写整合知识体系(顶层)
